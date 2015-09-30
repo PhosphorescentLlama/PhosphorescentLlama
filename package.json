@@ -4,7 +4,7 @@
   "description": "",
   "main": "paths.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/test.server.js"
   },
   "repository": {
     "type": "git",
