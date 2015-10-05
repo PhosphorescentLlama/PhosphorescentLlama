@@ -1,6 +1,6 @@
 var Beat = function( soundID, sequence ) {
 
-  this._buffer = window.context._sampleBuffers[ soundID ];
+  this._generator = window.context._generators[ soundID ];
 
   this._sequence = sequence;
 
@@ -46,12 +46,8 @@ Beat.prototype.play = function( when ) {
 
   // will play immediately.
 
-  var source = window.context.createBufferSource( );
+  this._generator.connect( this._sequence._track );
 
-  source.buffer = this._buffer;
-
-  source.connect( this._sequence._track );
-
-  source.start( when );
+  this._generator.start( when );
 
 };

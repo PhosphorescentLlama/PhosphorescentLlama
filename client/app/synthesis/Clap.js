@@ -32,7 +32,7 @@ AudioContext.prototype.createClap = function( ) {
 
   clap.master.gain = context.createGain( );
 
-  clap.master.gain.gain.value = 0.5;
+  clap.master.gain.gain.value = 0.6;
 
   clap.master.input = clap.master.gain;
 

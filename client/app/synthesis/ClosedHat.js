@@ -34,7 +34,7 @@ AudioContext.prototype.createClosedHat = function( ) {
 
   closedHat.master.gain = context.createGain( );
 
-  closedHat.master.gain.gain.value = 2;
+  closedHat.master.gain.gain.value = 4;
 
   closedHat.master.input = closedHat.master.gain;
 
