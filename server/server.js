@@ -16,6 +16,8 @@ var router = require( paths.routers + '/routes.js' );
 
 var mongoose = require('mongoose');
 
+var morgan = require('morgan');
+
 var port = process.env.PORT || 44100;
 
 var connectURI;
@@ -35,6 +37,7 @@ mongoose.connect( connectURI );
 
 var app = express();
 
+app.use(morgan('dev'));
 
 app.use( bodyParser.urlencoded({extended: true}) );
 
@@ -46,7 +49,7 @@ app.use(
 
   expressSession( {
 
-    secret: 'beef sucks, don`t eat it.',
+    secret: 'fruit sucks, don`t eat it.',
 
     resave: false,
 
