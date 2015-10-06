@@ -81,7 +81,7 @@ app.controller( 'GameController' , [ '$scope', 'playerSequencer', 'httpFactory',
     if( $scope.level !== $scope.lastLevel ) {
 
       $scope.$emit( 'correctMatch' );
-      
+
     }
 
 
@@ -103,7 +103,7 @@ app.controller( 'GameController' , [ '$scope', 'playerSequencer', 'httpFactory',
 
 
       $scope.startLevel( );
-      
+
     }
 
   };
@@ -184,66 +184,66 @@ app.controller( 'GameController' , [ '$scope', 'playerSequencer', 'httpFactory',
 
 
   //BELOW HERE ARE ALL TEMPORARY FUNCTIONS THAT WON'T BE NEEDED ONCE WE ARE RETRIEVING SOUNDS PROPERLY
-  // $scope.buildLevel = function ( ) {
+  $scope.buildLevel = function ( ) {
 
-  //   var levelSettings = levelFactory[ $scope.level ];
+    var levelSettings = levelFactory[ $scope.level ];
 
-  //   var levelSequencer = new Sequencer (
+    var levelSequencer = new Sequencer (
 
-  //     levelSettings.tempo,
+      levelSettings.tempo,
 
-  //     levelSettings.tickNumber,
+      levelSettings.tickNumber,
 
-  //     levelSettings.soundIDs
+      levelSettings.soundIDs
 
-  //   );
+    );
 
-  //   for( var i = 0; i < levelSettings.beatsToToggle.length; i++ ) {
+    for( var i = 0; i < levelSettings.beatsToToggle.length; i++ ) {
 
-  //     var sequenceIndex = levelSettings.beatsToToggle[ i ][ 0 ];
+      var sequenceIndex = levelSettings.beatsToToggle[ i ][ 0 ];
 
-  //     var beatIndex = levelSettings.beatsToToggle[ i ][ 1 ];
+      var beatIndex = levelSettings.beatsToToggle[ i ][ 1 ];
 
-  //     levelSequencer.toggleBeat( sequenceIndex, beatIndex );
+      levelSequencer.toggleBeat( sequenceIndex, beatIndex );
 
-  //   }
+    }
 
-  //   var savedSequencer = levelSequencer.save( );
+    var savedSequencer = levelSequencer.save( );
 
-  //   httpFactory.postSequencer( $scope.level, savedSequencer, $scope.getSequencer );
+    httpFactory.postSequencer( $scope.level, savedSequencer, $scope.getSequencer );
 
-  // };
+  };
 
-  // $scope.saveToDatabase = function( ) {
+  $scope.saveToDatabase = function( ) {
 
-  //   var savedSequencer = $scope.playerSequencer.save( );
+    var savedSequencer = $scope.playerSequencer.save( );
 
-  //   httpFactory.postSequencer( $scope.inputLevel, savedSequencer, function( response ) {
+    httpFactory.postSequencer( $scope.inputLevel, savedSequencer, function( response ) {
 
-  //     if ( response ) {
+      if ( response ) {
 
-  //       $scope.inputLevel = '';
+        $scope.inputLevel = '';
 
-  //     }
+      }
 
-  //   });
+    });
 
-  // };
+  };
 
-  // $scope.createSequencer = function( ) {
+  $scope.createSequencer = function( ) {
 
-  //   var soundIDs = $scope.inputSounds.split( ',' );
+    var soundIDs = $scope.inputSounds.split( ',' );
 
-  //   var userSequencer = playerSequencer.build( $scope.inputTempo, $scope.inputBeats, soundIDs );
+    var userSequencer = playerSequencer.build( $scope.inputTempo, $scope.inputBeats, soundIDs );
 
-  //   $scope.$broadcast( 'createPlayerSequencer', userSequencer );
+    $scope.$broadcast( 'createPlayerSequencer', userSequencer );
 
-  //   $scope.inputTempo = '';
+    $scope.inputTempo = '';
 
-  //   $scope.inputBeats = '';
+    $scope.inputBeats = '';
 
-  //   $scope.inputSounds = '';
+    $scope.inputSounds = '';
 
-  // };
+  };
 
 }]);

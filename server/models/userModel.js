@@ -1,13 +1,11 @@
 var mongoose = require('mongoose');
 
 var UserSchema = new mongoose.Schema({
-
   username: String,
-
   password: String,
-
-  level: Number
-
+  points: Number,
+  wins: Number,
+  losses: Number
 });
 
 module.exports = mongoose.model('User', UserSchema);
