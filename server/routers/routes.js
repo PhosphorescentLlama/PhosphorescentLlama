@@ -56,7 +56,7 @@ module.exports = function( passport ) {
 
   });
 
-  router.get( '/users', usersController.getUsers );
+  router.get( '/users/all', usersController.getUsers );
 
   /* Handle Requests to '/levels' */
 
